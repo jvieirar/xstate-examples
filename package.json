@@ -1,16 +1,17 @@
 {
   "name": "xstate-examples",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
   "scripts": {
-    "start": "parcel public/index.html"
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.0.0-alpha.3.2"
+    "parcel": "^2.0.0-alpha.3.2",
+    "postcss-modules": "^2.0.0",
+    "sass": "^1.26.3"
   },
   "dependencies": {
     "react": "^16.13.1",
