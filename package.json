@@ -2,7 +2,7 @@
   "name": "xstate-examples",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel public/index.html",
+    "dev": "parcel public/index.html",
     "build": "parcel build public/index.html",
     "start:prod": "npm run build && parcel serve dist/index.html"
   },
@@ -15,7 +15,9 @@
     "sass": "^1.26.3"
   },
   "dependencies": {
+    "@xstate/react": "^0.8.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "xstate": "^4.8.0"
   }
 }
