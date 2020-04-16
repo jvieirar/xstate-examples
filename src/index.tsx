@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { useMachine } from '@xstate/react';
 import { Machine, assign } from 'xstate';
 
+import VideoPlayer from './VideoPlayer';
 // @ts-ignore
 import styles from './index.module.scss';
 
@@ -78,25 +79,28 @@ const App = () => {
   // render
   return (
     <main className={styles.main}>
-      <h2>XState</h2>
-      <h3>State: {current.value}</h3>
-      <ul>
-        {data.map((row) => (
-          <li key={row}>{row}</li>
-        ))}
-        {current.matches('loading') && <li>...loading</li>}
-        {current.matches('more') && (
-          <li>
-            <button
-              onClick={() => {
-                send('LOAD');
-              }}
-            >
-              Load More
-            </button>
-          </li>
-        )}
-      </ul>
+      <div>
+        <h2>XState</h2>
+        <h3>State: {current.value}</h3>
+        <ul>
+          {data.map((row) => (
+            <li key={row}>{row}</li>
+          ))}
+          {current.matches('loading') && <li>...loading</li>}
+          {current.matches('more') && (
+            <li>
+              <button
+                onClick={() => {
+                  send('LOAD');
+                }}
+              >
+                Load More
+              </button>
+            </li>
+          )}
+        </ul>
+      </div>
+      {/* <VideoPlayer /> */}
     </main>
   );
 };
