@@ -5,6 +5,10 @@ const doLogin = async (context, event) => {
   const { username, password } = event;
   console.log({ username, password });
 
+  if (username !== 'hello' || password !== '1234') {
+    throw new Error('Wrong username or password');
+  }
+
   return { username, password };
 };
 

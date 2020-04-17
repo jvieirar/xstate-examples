@@ -11,7 +11,7 @@ const Home = (props: Props) => {
   return (
     <div>
       <h1>Home</h1>
-      <div>Machine state: {machineValue}</div>
+      <div>Machine state: {JSON.stringify(machineValue, null, 2)}</div>
       <button
         onClick={() => {
           sendEventToMachine('RUN');
