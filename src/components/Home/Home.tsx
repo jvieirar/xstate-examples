@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useGlobalContext } from '../../context/global';
 
 interface Props {}
 
 const Home = (props: Props) => {
-  const { machine, sendEventToMachine } = useGlobalContext();
+  // properties
+  const { machine, sendToMachine } = useGlobalContext();
   const { context: machineContext, value: machineValue } = machine;
+  const { stories } = machineContext;
 
+  // methods
+  useEffect(() => {
+    sendToMachine('LOAD_STORIES');
+  }, []);
+
+  // render
   return (
     <div>
       <h1>Home</h1>
       <div>Machine state: {JSON.stringify(machineValue, null, 2)}</div>
       <button
         onClick={() => {
-          sendEventToMachine('RUN');
+          sendToMachine('RUN');
         }}
       >
         Set value to 'HI'
       </button>
+      {stories &&
+        stories.map((story) => (
+          <div key={story.id}>
+            {story.score}, {story.title}
+          </div>
+        ))}
     </div>
   );
 };
