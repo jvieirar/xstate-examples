@@ -11,7 +11,7 @@ export default function GlobalState(pageProps) {
 
   const initialState = {
     machine: currentMachine,
-    // sendToMachine,
+    sendToMachine,
   };
 
   const [state, dispatch] = useReducer(GlobalReducer, initialState);
@@ -31,7 +31,7 @@ export default function GlobalState(pageProps) {
     <GlobalContext.Provider
       value={{
         machine: state.machine,
-        // sendToMachine,
+        sendToMachine,
         sendEventToMachine,
       }}
     >

@@ -1,25 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import { useMachine } from '@xstate/react';
-import { Machine, assign } from 'xstate';
-import Home from './components/Home';
 import { GlobalState } from './context/global';
+import App from './App';
 
-function App() {
+function Index() {
   return (
     <GlobalState>
-      <Router>
-        <header>STATE MACHINE EXAMPLES</header>
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <App />
     </GlobalState>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Index />, document.getElementById('root'));
