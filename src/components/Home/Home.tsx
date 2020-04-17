@@ -5,16 +5,22 @@ import { useGlobalContext } from '../../context/global';
 interface Props {}
 
 const Home = (props: Props) => {
-  const { machine, value, setValue } = useGlobalContext();
+  const { machine, sendToMachine, sendEventToMachine } = useGlobalContext();
 
   return (
     <div>
       <h1>Home</h1>
       <ul>
-        <li>{machine}</li>
-        <li>{value}</li>
+        <li>{JSON.stringify(machine, null, 2)}</li>
+        <li>{machine.value}</li>
       </ul>
-      <button onClick={() => setValue('HI')}>Set value to 'HI'</button>
+      <button
+        onClick={() => {
+          sendEventToMachine('RUN');
+        }}
+      >
+        Set value to 'HI'
+      </button>
     </div>
   );
 };
